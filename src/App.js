@@ -3,6 +3,7 @@ import "./App.css";
 import MagneticCursor from "./MagneticCursor";
 import ProjectCard from "./ProjectCard";
 import flyLogo from "./fly_logo.png";
+import flymindLogo from "./flymind_logo.png";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -621,8 +622,18 @@ if __name__ == "__main__":
           } transition-all duration-500`}
         >
           <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              FlyMind
+            <div className="flex items-center">
+              <img
+                src={flymindLogo}
+                alt="FlyMind Logo"
+                className="h-16 w-auto"
+                style={{
+                  maskImage:
+                    "radial-gradient(circle, rgba(255,255,255,1) 60%, rgba(255,255,255,0.3) 80%, rgba(255,255,255,0) 100%)",
+                  WebkitMaskImage:
+                    "radial-gradient(circle, rgba(255,255,255,1) 60%, rgba(255,255,255,0.3) 80%, rgba(255,255,255,0) 100%)",
+                }}
+              />
             </div>
             <div className="hidden md:flex space-x-8">
               {["Home", "Services", "Portfolio", "About", "Contact"].map(
