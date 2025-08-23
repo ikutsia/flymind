@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import MagneticCursor from "./MagneticCursor";
 import ProjectCard from "./ProjectCard";
+import flyLogo from "./fly_logo.png";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -708,14 +709,26 @@ if __name__ == "__main__":
           className="min-h-screen flex items-center justify-center px-6 pt-20"
         >
           <div className="text-center max-w-6xl mx-auto">
-            <div className="mb-8 relative">
-              <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
-                FLYMIND
-              </h1>
+            <div className="mb-4 relative">
+              <div className="flex justify-center mb-2">
+                <div className="relative px-16 md:px-24 lg:px-32">
+                  <img
+                    src={flyLogo}
+                    alt="FlyMind Logo"
+                    className="h-64 md:h-96 lg:h-128 w-auto animate-pulse"
+                    style={{
+                      maskImage:
+                        "radial-gradient(circle, rgba(255,255,255,1) 60%, rgba(255,255,255,0.3) 80%, rgba(255,255,255,0) 100%)",
+                      WebkitMaskImage:
+                        "radial-gradient(circle, rgba(255,255,255,1) 60%, rgba(255,255,255,0.3) 80%, rgba(255,255,255,0) 100%)",
+                    }}
+                  />
+                </div>
+              </div>
               <div className="absolute -inset-4 bg-gradient-to-r from-cyan-600/20 to-purple-600/20 blur-3xl rounded-full"></div>
             </div>
 
-            <h2 className="text-2xl md:text-4xl font-semibold mb-8 text-gray-300">
+            <h2 className="text-2xl md:text-4xl font-semibold mb-4 text-gray-300">
               Cosmic Web & Mobile Development
             </h2>
 
