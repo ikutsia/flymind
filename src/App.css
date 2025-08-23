@@ -21,9 +21,116 @@ html {
   background: linear-gradient(45deg, #0891b2, #7c3aed);
 }
 
+/* Hide ALL scrollbars completely */
+html,
+body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+  display: none !important;
+  background: transparent !important;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+  display: none !important;
+  background: transparent !important;
+}
+
+html::-webkit-scrollbar-corner,
+body::-webkit-scrollbar-corner,
+*::-webkit-scrollbar-corner {
+  display: none !important;
+  background: transparent !important;
+}
+
+/* scrollbar-hide utility class */
+.scrollbar-hide {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Ensure horizontal scrolling works even with hidden scrollbars */
+.horizontal-scroll-container.scrollbar-hide {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+.horizontal-scroll-container.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* SmoothScroll component styles */
+.smooth-scroll-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: max-content;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Custom z-index for navigation */
+.z-100 {
+  z-index: 100;
+}
+
+.smooth-scroll-container > * {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Funky Scroll Effects */
 body {
   overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Ensure horizontal scrolling works */
+.horizontal-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Force horizontal scroll on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .horizontal-scroll-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
 }
 
 /* Glow Effect */
@@ -409,7 +516,7 @@ body {
 .code-content {
   background: #1e1e1e;
   color: #d4d4d4;
-  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-family: "Fira Code", "Monaco", "Consolas", monospace;
 }
 
 /* Line Numbers */

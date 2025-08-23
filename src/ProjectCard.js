@@ -1,4 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+// Helper function to determine language from filename
+const getLanguageFromFileName = (fileName) => {
+  const extension = fileName.split(".").pop().toLowerCase();
+  const languageMap = {
+    js: "javascript",
+    jsx: "javascript",
+    ts: "typescript",
+    tsx: "typescript",
+    py: "python",
+    html: "html",
+    css: "css",
+    scss: "scss",
+    json: "json",
+    md: "markdown",
+  };
+  return languageMap[extension] || "javascript";
+};
 
 const ProjectCard = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -23,7 +43,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div
-      className="group relative aspect-video"
+      className="group relative aspect-[4/3]"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{ perspective: "1000px" }}
@@ -49,28 +69,19 @@ const ProjectCard = ({ project }) => {
             WebkitBackfaceVisibility: "hidden",
           }}
         >
-          <div className="relative w-full h-full bg-gradient-to-br from-purple-900/50 to-cyan-900/50 rounded-xl overflow-hidden border border-purple-500/30 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 interactive magnetic-pull">
+          <div className="relative w-full h-full bg-gradient-to-br from-purple-900/50 to-cyan-900/50 rounded-xl overflow-hidden border border-purple-500/30 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 interactive magnetic-pull p-6">
             <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-all duration-300"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-4xl mb-4">🚀</div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-400 mb-4">
-                  {project.description}
-                </p>
-                <div className="flex justify-center space-x-2">
-                  {project.tech.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 bg-purple-600/30 text-purple-300 text-xs rounded-full border border-purple-500/30"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <div className="relative z-10 h-full flex flex-col">
+              {/* Icon */}
+              <div className="text-4xl mb-4">🚀</div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-white mb-2">
+                {project.title}
+              </h3>
+
+              {/* View text */}
+              <p className="text-sm text-gray-400">view</p>
             </div>
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -105,9 +116,20 @@ const ProjectCard = ({ project }) => {
 
             {/* Code Content */}
             <div className="absolute top-8 left-0 right-0 bottom-0 p-4 overflow-auto">
-              <pre className="text-xs text-gray-300 font-mono leading-relaxed">
-                <code>{project.codeSnippet}</code>
-              </pre>
+              <SyntaxHighlighter
+                language={getLanguageFromFileName(project.fileName)}
+                style={tomorrow}
+                customStyle={{
+                  margin: 0,
+                  fontSize: "10px",
+                  background: "transparent",
+                  fontFamily: "monospace",
+                }}
+                showLineNumbers={false}
+                wrapLines={true}
+              >
+                {project.codeSnippet}
+              </SyntaxHighlighter>
             </div>
 
             {/* Hover Hint */}
