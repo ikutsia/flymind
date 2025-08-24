@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import MagneticCursor from "./MagneticCursor";
 import ProjectCard from "./ProjectCard";
@@ -7,22 +7,10 @@ import FireEffect from "./FireEffect";
 import flyLogo from "./fly_logo.png";
 import flymindLogo from "./flymind_logo.png";
 import { projects } from "./data/projects";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
@@ -531,9 +519,11 @@ function App() {
                 </p>
                 <div className="flex justify-center space-x-4">
                   <a
-                    href="#"
+                    href="https://twitter.com/flymind"
                     className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300"
                     title="Follow us on X (Twitter)"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <svg
                       className="w-6 h-6 text-white"
@@ -544,9 +534,11 @@ function App() {
                     </svg>
                   </a>
                   <a
-                    href="#"
+                    href="https://facebook.com/flymind"
                     className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300"
                     title="Follow us on Facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <svg
                       className="w-6 h-6 text-white"
@@ -557,9 +549,11 @@ function App() {
                     </svg>
                   </a>
                   <a
-                    href="#"
+                    href="https://instagram.com/flymind"
                     className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300"
                     title="Follow us on Instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <svg
                       className="w-6 h-6 text-white"
