@@ -77,6 +77,88 @@ const FireEffect = () => {
     );
   };
 
+  // Create a large fire grouping (triple height) for left and right edges
+  const createLargeFireGrouping = (position, delay = 0) => {
+    return (
+      <div
+        key={`large-grouping-${position}`}
+        className={`absolute bottom-0 left-[${position}%] transform -translate-x-1/2`}
+        style={{
+          bottom: "0px",
+          left:
+            position === 100
+              ? `calc(${position}% - 7px)`
+              : `calc(${position}% + 10px)`,
+        }}
+      >
+        {/* Main overlapping triangles - 5-7 layers (triple height) */}
+        <div className="relative">
+          {/* Layer 1 - Largest */}
+          <div
+            className="w-0 h-0 border-l-[12px] border-r-[12px] border-b-[60px] border-l-transparent border-r-transparent border-b-yellow-300 fire-flicker blur-[0.5px]"
+            style={{ animationDelay: `${delay}s` }}
+          ></div>
+
+          {/* Layer 2 - Orange */}
+          <div
+            className="absolute bottom-0 w-0 h-0 border-l-[10.5px] border-r-[10.5px] border-b-[54px] border-l-transparent border-r-transparent border-b-orange-400 fire-flicker blur-[1px]"
+            style={{ animationDelay: `${delay + 0.2}s` }}
+          ></div>
+
+          {/* Layer 3 - Red */}
+          <div
+            className="absolute bottom-0 w-0 h-0 border-l-[9px] border-r-[9px] border-b-[48px] border-l-transparent border-r-transparent border-b-red-500 fire-flicker blur-[1.5px]"
+            style={{ animationDelay: `${delay + 0.4}s` }}
+          ></div>
+
+          {/* Layer 4 - Darker red */}
+          <div
+            className="absolute bottom-0 w-0 h-0 border-l-[7.5px] border-r-[7.5px] border-b-[42px] border-l-transparent border-r-transparent border-b-red-600 fire-flicker blur-[2px]"
+            style={{ animationDelay: `${delay + 0.6}s` }}
+          ></div>
+
+          {/* Layer 5 - Bright yellow tip */}
+          <div
+            className="absolute bottom-0 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[36px] border-l-transparent border-r-transparent border-b-yellow-200 fire-flicker blur-[1px]"
+            style={{ animationDelay: `${delay + 0.8}s` }}
+          ></div>
+
+          {/* Layer 6 - Orange tip */}
+          <div
+            className="absolute bottom-0 w-0 h-0 border-l-[4.5px] border-r-[4.5px] border-b-[30px] border-l-transparent border-r-transparent border-b-orange-300 fire-flicker blur-[1.5px]"
+            style={{ animationDelay: `${delay + 1.0}s` }}
+          ></div>
+
+          {/* Layer 7 - Small bright tip */}
+          <div
+            className="absolute bottom-0 w-0 h-0 border-l-[3px] border-r-[3px] border-b-[24px] border-l-transparent border-r-transparent border-b-yellow-100 fire-flicker blur-[2px]"
+            style={{ animationDelay: `${delay + 1.2}s` }}
+          ></div>
+        </div>
+
+        {/* Rising fire flakes for this grouping */}
+        <div
+          className={`absolute bottom-${
+            Math.random() * 4 + 2
+          } left-1/2 transform -translate-x-1/2 w-0.5 h-0.5 bg-yellow-200 rounded-full spark-float`}
+          style={{ animationDelay: `${delay + 0.5}s` }}
+        ></div>
+        <div
+          className={`absolute bottom-${
+            Math.random() * 4 + 3
+          } left-1/2 transform -translate-x-1/2 w-0.5 h-0.5 bg-orange-300 rounded-full spark-float`}
+          style={{ animationDelay: `${delay + 0.8}s` }}
+        ></div>
+        <div
+          className={`absolute bottom-${
+            Math.random() * 4 + 4
+          } left-1/2 transform -translate-x-1/2 w-0.5 h-0.5 bg-red-400 rounded-full spark-float`}
+          style={{ animationDelay: `${delay + 1.1}s` }}
+        ></div>
+      </div>
+    );
+  };
+
   // Generate 23 fire groupings spread evenly across the bottom
   const generateFireGroupings = () => {
     const groupings = [];
@@ -90,6 +172,12 @@ const FireEffect = () => {
       const delay = Math.random() * 2; // Random delay for each grouping
       groupings.push(createFireGrouping(position, delay));
     });
+
+    // Add large fire groupings to left and right edges
+    const leftDelay = Math.random() * 2;
+    const rightDelay = Math.random() * 2;
+    groupings.push(createLargeFireGrouping(0, leftDelay)); // Left edge
+    groupings.push(createLargeFireGrouping(100, rightDelay)); // Right edge
 
     return groupings;
   };
