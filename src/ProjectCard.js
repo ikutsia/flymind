@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectCard = ({ icon, title, description, tags }) => {
   return (
-    <div className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 h-full flex flex-col">
+    <div className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 h-full flex flex-col interactive">
       {/* Icon */}
       <div className="text-3xl mb-4 flex-shrink-0">{icon}</div>
 

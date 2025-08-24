@@ -122,33 +122,48 @@ function App() {
             <div className="hidden md:flex items-center space-x-8">
               <button
                 onClick={() => scrollToSection("home")}
-                className="text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="nav-btn relative px-4 py-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer group"
               >
-                Home
+                <span className="relative z-10">Home</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 border border-cyan-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button
                 onClick={() => scrollToSection("services")}
-                className="text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="nav-btn relative px-4 py-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer group"
               >
-                Services
+                <span className="relative z-10">Services</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 border border-purple-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button
                 onClick={() => scrollToSection("portfolio")}
-                className="text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="nav-btn relative px-4 py-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer group"
               >
-                Portfolio
+                <span className="relative z-10">Portfolio</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-cyan-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 border border-pink-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-pink-500/10 to-cyan-500/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="nav-btn relative px-4 py-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer group"
               >
-                About
+                <span className="relative z-10">About</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 border border-cyan-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="nav-btn relative px-4 py-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer group"
               >
-                Contact
+                <span className="relative z-10">Contact</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 border border-blue-400/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </div>
 
@@ -211,45 +226,50 @@ function App() {
                   scrollToSection("home");
                   setMobileMenuOpen(false);
                 }}
-                className="block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="mobile-nav-btn block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer group relative"
               >
-                Home
+                <span className="relative z-10">Home</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button
                 onClick={() => {
                   scrollToSection("services");
                   setMobileMenuOpen(false);
                 }}
-                className="block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="mobile-nav-btn block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer group relative"
               >
-                Services
+                <span className="relative z-10">Services</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button
                 onClick={() => {
                   scrollToSection("portfolio");
                   setMobileMenuOpen(false);
                 }}
-                className="block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="mobile-nav-btn block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer group relative"
               >
-                Portfolio
+                <span className="relative z-10">Portfolio</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button
                 onClick={() => {
                   scrollToSection("about");
                   setMobileMenuOpen(false);
                 }}
-                className="block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="mobile-nav-btn block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer group relative"
               >
-                About
+                <span className="relative z-10">About</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button
                 onClick={() => {
                   scrollToSection("contact");
                   setMobileMenuOpen(false);
                 }}
-                className="block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="mobile-nav-btn block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer group relative"
               >
-                Contact
+                <span className="relative z-10">Contact</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </div>
           </div>

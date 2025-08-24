@@ -55,13 +55,15 @@ const MagneticCursor = () => {
         target.tagName === "BUTTON" ||
         target.tagName === "A" ||
         target.closest("button") ||
-        target.closest("a")
+        target.closest("a") ||
+        target.closest(".interactive")
       ) {
         cursorOutline.style.transform = `translate(${outlineX - 20}px, ${
           outlineY - 20
         }px) scale(1.5)`;
-        cursorOutline.style.background = "rgba(139, 92, 246, 0.3)";
-        cursorOutline.style.border = "2px solid rgba(139, 92, 246, 0.8)";
+        cursorOutline.style.background = "rgba(255, 255, 255, 0.2)";
+        cursorOutline.style.border = "2px solid rgba(255, 255, 255, 0.6)";
+        cursorOutline.style.boxShadow = "0 0 20px rgba(255, 255, 255, 0.4)";
       }
     };
 
@@ -69,8 +71,9 @@ const MagneticCursor = () => {
       cursorOutline.style.transform = `translate(${outlineX - 20}px, ${
         outlineY - 20
       }px) scale(1)`;
-      cursorOutline.style.background = "rgba(6, 182, 212, 0.1)";
-      cursorOutline.style.border = "2px solid rgba(6, 182, 212, 0.3)";
+      cursorOutline.style.background = "rgba(255, 255, 255, 0.1)";
+      cursorOutline.style.border = "2px solid rgba(255, 255, 255, 0.3)";
+      cursorOutline.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.2)";
     };
 
     // Event listeners
@@ -107,25 +110,27 @@ const MagneticCursor = () => {
       ref={cursorRef}
       className="fixed pointer-events-none z-[9999] opacity-0 transition-opacity duration-300"
     >
-      {/* Cursor outline (magnetic blob) */}
+      {/* Cursor outline (white glow blob) */}
       <div
         ref={cursorOutlineRef}
-        className="w-10 h-10 rounded-full bg-cyan-400/10 border-2 border-cyan-400/30 backdrop-blur-sm transition-all duration-300 ease-out"
+        className="w-10 h-10 rounded-full bg-white/10 border-2 border-white/30 backdrop-blur-sm transition-all duration-300 ease-out"
         style={{
           position: "fixed",
           pointerEvents: "none",
-          mixBlendMode: "difference",
+          mixBlendMode: "normal",
+          boxShadow: "0 0 15px rgba(255, 255, 255, 0.2)",
         }}
       />
 
-      {/* Cursor dot (inner dot) */}
+      {/* Cursor dot (inner white dot) */}
       <div
         ref={cursorDotRef}
-        className="w-2 h-2 rounded-full bg-cyan-400 transition-all duration-200 ease-out"
+        className="w-2 h-2 rounded-full bg-white transition-all duration-200 ease-out"
         style={{
           position: "fixed",
           pointerEvents: "none",
-          mixBlendMode: "difference",
+          mixBlendMode: "normal",
+          boxShadow: "0 0 8px rgba(255, 255, 255, 0.6)",
         }}
       />
     </div>
