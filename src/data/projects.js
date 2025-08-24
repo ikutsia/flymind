@@ -1,8 +1,10 @@
 export const projects = [
   {
     title: "Cosmic Dashboard",
-    description: "Real-time space analytics with 3D visualizations",
-    tech: ["React", "Three.js", "WebGL"],
+    description:
+      "An interactive space-themed dashboard with live data visualization and real-time analytics.",
+    icon: "🚀",
+    tags: ["React", "Three.js", "WebGL", "API"],
     fileName: "Dashboard.jsx",
     codeSnippet: `import React, { useState, useEffect } from 'react';
 import * as THREE from 'three';
@@ -62,16 +64,13 @@ export default CosmicDashboard;`,
   },
   {
     title: "Quantum Chat",
-    description: "End-to-end encrypted messaging with quantum protocols",
-    tech: ["Next.js", "Socket.io", "Crypto"],
+    description:
+      "End-to-end encrypted messaging with quantum protocols and real-time communication.",
+    icon: "💬",
+    tags: ["Next.js", "Socket.io", "Crypto", "WebRTC"],
     fileName: "Chat.js",
     codeSnippet: `import { useState, useEffect } from 'react';
 import io from 'socket.io-client';
-
-// Stub functions for demo
-const generateQuantumKey = () => 'quantum-key-' + Math.random().toString(36);
-const encrypt = (msg, key) => btoa(msg + '|' + key);
-const decrypt = (msg, key) => atob(msg).split('|')[0];
 
 const QuantumChat = () => {
   const [messages, setMessages] = useState([]);
@@ -117,8 +116,10 @@ export default QuantumChat;`,
   },
   {
     title: "Neural Network Visualizer",
-    description: "Interactive AI model visualization with real-time training",
-    tech: ["Python", "TensorFlow", "D3.js"],
+    description:
+      "Interactive AI model visualization with real-time training and performance metrics.",
+    icon: "🧠",
+    tags: ["Python", "TensorFlow", "D3.js", "ML"],
     fileName: "neural_network.py",
     codeSnippet: `import tensorflow as tf
 import numpy as np
@@ -181,19 +182,14 @@ class NeuralNetworkVisualizer:
         plt.legend()
         
         plt.tight_layout()
-        plt.show()
-
-# Usage example
-visualizer = NeuralNetworkVisualizer((10,), [64, 32, 16])
-X = np.random.randn(1000, 10)
-y = np.random.randint(0, 2, 1000)
-visualizer.train_and_visualize(X, y)`,
+        plt.show()`,
   },
   {
     title: "Blockchain Explorer",
     description:
-      "Real-time blockchain transaction explorer with 3D visualization",
-    tech: ["Web3.js", "Three.js", "Ethereum"],
+      "Real-time blockchain transaction explorer with 3D visualization and smart contract analysis.",
+    icon: "⛓️",
+    tags: ["Web3.js", "Three.js", "Ethereum", "Solidity"],
     fileName: "BlockchainExplorer.js",
     codeSnippet: `import React, { useState, useEffect, useRef } from 'react';
 import * as THREE from 'three';
@@ -229,20 +225,6 @@ const BlockchainExplorer = () => {
       const block = new THREE.Mesh(geometry, material);
       block.position.set(index * 3, 0, 0);
       
-      // Add hash text
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
-      context.font = '12px Arial';
-      context.fillStyle = 'white';
-      context.fillText(hash.substring(0, 8), 10, 20);
-      
-      const texture = new THREE.CanvasTexture(canvas);
-      const textMaterial = new THREE.MeshBasicMaterial({ map: texture });
-      const textGeometry = new THREE.PlaneGeometry(2, 0.5);
-      const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-      textMesh.position.set(0, 1.5, 0);
-      
-      block.add(textMesh);
       return block;
     };
     
@@ -301,8 +283,9 @@ export default BlockchainExplorer;`,
   {
     title: "AI Code Generator",
     description:
-      "GPT-powered code generation with real-time syntax highlighting",
-    tech: ["OpenAI API", "Monaco Editor", "React"],
+      "Intelligent code generation powered by machine learning with syntax highlighting.",
+    icon: "🤖",
+    tags: ["Next.js", "OpenAI", "TypeScript", "VSCode"],
     fileName: "CodeGenerator.jsx",
     codeSnippet: `import React, { useState, useRef } from 'react';
 import Editor from '@monaco-editor/react';
@@ -402,8 +385,9 @@ export default CodeGenerator;`,
   {
     title: "Virtual Reality Interface",
     description:
-      "Immersive VR dashboard for data visualization and interaction",
-    tech: ["WebXR", "A-Frame", "Three.js"],
+      "Immersive VR experiences with real-time interaction and spatial computing.",
+    icon: "🥽",
+    tags: ["A-Frame", "WebXR", "Three.js", "WebGL"],
     fileName: "VRInterface.js",
     codeSnippet: `import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';

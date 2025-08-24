@@ -1,0 +1,7 @@
+[33m6471e65[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/horizontal-scrolling[m[33m, [m[1;31morigin/feature/horizontal-scrolling[m[33m)[m Implement snap scrolling and connecting navigation bar buttons to corresponding components
+[33m8d89feb[m Implemented Horizontal Scrolling
+[33m4d2050e[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m Add the smaller logo image in the navigation bar
+[33mb6b0334[m Add large flymind logo in the hero section
+[33m5051fec[m Implement flip action of project cards
+[33mfd4fe36[m Implement Magnetic Cursor
+[33mc7f1f7b[m Initialize project using Create React App
