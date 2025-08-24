@@ -3,6 +3,7 @@ import "./App.css";
 import MagneticCursor from "./MagneticCursor";
 import ProjectCard from "./ProjectCard";
 import SmoothScroll from "./SmoothScroll";
+import FireEffect from "./FireEffect";
 import flyLogo from "./fly_logo.png";
 import flymindLogo from "./flymind_logo.png";
 import { projects } from "./data/projects";
@@ -444,30 +445,48 @@ function App() {
                 </div>
               </div>
               <div className="relative">
-                <div className="bg-gradient-to-br from-purple-600/20 to-cyan-600/20 rounded-2xl p-8 backdrop-blur-md border border-white/10">
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    Our Vision
-                  </h3>
-                  <p className="text-white/80 mb-6">
-                    To create digital experiences that bridge the gap between
-                    imagination and reality, making the impossible possible
-                    through innovative technology and creative design.
-                  </p>
-                  <div className="space-y-4">
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 bg-cyan-400 rounded-full mr-3"></div>
-                      <span className="text-white/80">Innovation First</span>
+                <div
+                  id="our-vision-card"
+                  className="mission-card bg-gradient-to-br from-purple-600/20 to-cyan-600/20 rounded-2xl p-8 backdrop-blur-md border border-white/10 relative group hover:scale-105 transition-all duration-300 overflow-hidden"
+                >
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-bold text-white mb-4">
+                      Our Vision
+                    </h3>
+                    <p className="text-white/80 mb-6">
+                      To create digital experiences that bridge the gap between
+                      imagination and reality, making the impossible possible
+                      through innovative technology and creative design.
+                    </p>
+                    <div className="space-y-4">
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-cyan-400 rounded-full mr-3"></div>
+                        <span className="text-white/80">Innovation First</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-purple-400 rounded-full mr-3"></div>
+                        <span className="text-white/80">
+                          User-Centric Design
+                        </span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-pink-400 rounded-full mr-3"></div>
+                        <span className="text-white/80">
+                          Future-Ready Solutions
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 bg-purple-400 rounded-full mr-3"></div>
-                      <span className="text-white/80">User-Centric Design</span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 bg-pink-400 rounded-full mr-3"></div>
-                      <span className="text-white/80">
-                        Future-Ready Solutions
-                      </span>
-                    </div>
+                  </div>
+
+                  {/* Fire effect anchored to bottom border */}
+                  <div className="absolute bottom-0 left-0 w-full h-32 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <FireEffect />
+                  </div>
+
+                  {/* Fire glow effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-yellow-500/20 rounded-2xl blur-md animate-pulse"></div>
                   </div>
                 </div>
               </div>
